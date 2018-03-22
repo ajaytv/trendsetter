@@ -3,10 +3,39 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Map</ion-title>
+    <ion-title>Beneficiary Information</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="map-page">
-  <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
+  <button ion-button color="dark" outline full (click)="onButtonClick()">Primary Beneficiary</button>
+  <ion-card *ngIf="buttonClicked" class="speaker-card">
+    <ion-card-header>
+      <p><b>John</b></p>
+      
+    </ion-card-header>
+
+    <ion-card-content class="outer-content">
+      
+      <p>Date of Birth  : 04 Jan 1962</p>
+      <p>SSN  :909878909</p>
+      <p>Relationship  :Non-Spouse</p>    
+    </ion-card-content>
+
+  </ion-card>
+  <button ion-button color="dark" outline full (click)="onButtonClick1()">Contingent Beneficiary</button>
+  <ion-card *ngIf="buttonClicked1" class="speaker-card">
+    <ion-card-header>
+      <p><b>Graham</b></p>
+      
+    </ion-card-header>
+
+    <ion-card-content class="outer-content">
+      
+      <p>Date of Birth  : 04 Feb 1958</p>
+      <p>SSN  :909878932</p>
+      <p>Relationship  :Non-Spouse</p>    
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>

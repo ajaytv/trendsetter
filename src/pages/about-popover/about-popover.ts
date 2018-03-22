@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { App, NavParams, NavController, ModalController, ViewController } from 'ionic-angular';
+import { App,  NavController, ModalController, ViewController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
 @Component({
   template: `
