@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 import {
-  ActionSheet,
+  
   ActionSheetController,
-  ActionSheetOptions,
   Config,
   NavController
 } from 'ionic-angular';
@@ -15,21 +14,21 @@ import { SessionDetailPage } from '../session-detail/session-detail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
 // TODO remove
-export interface ActionSheetButton {
-  text?: string;
-  role?: string;
-  icon?: string;
-  cssClass?: string;
-  handler?: () => boolean|void;
-};
 
 @Component({
   selector: 'page-speaker-list',
   templateUrl: 'speaker-list.html'
 })
 export class SpeakerListPage {
-  actionSheet: ActionSheet;
+  factor=[1,0.978,0.876,0.768,8.12];
+  abPart= 615;
+  slaPart=this.abPart*this.factor[1];
+  js5Part=this.abPart*this.factor[2];
+  js1Part=this.abPart*this.factor[3];
+  lumpPart=Math.ceil(this.abPart*this.factor[4]*12);
+  partscenario =3;
   speakers: any[] = [];
+  
 
   constructor(
     public actionSheetCtrl: ActionSheetController,
@@ -52,7 +51,13 @@ export class SpeakerListPage {
   goToSpeakerDetail(speaker: any) {
     this.navCtrl.push(SpeakerDetailPage, { speakerId: speaker.id });
   }
-
+  scenario() {
+    if(this.partscenario>1) 
+      return false;
+      else 
+      return true;
+    
+  }
   goToSpeakerTwitter(speaker: any) {
     this.inAppBrowser.create(
       `https://twitter.com/${speaker.twitter}`,
@@ -60,57 +65,4 @@ export class SpeakerListPage {
     );
   }
 
-  openSpeakerShare(speaker: any) {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Share ' + speaker.name,
-      buttons: [
-        {
-          text: 'Copy Link',
-          handler: () => {
-            console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
-            if ( (window as any)['cordova'] && (window as any)['cordova'].plugins.clipboard) {
-              (window as any)['cordova'].plugins.clipboard.copy(
-                'https://twitter.com/' + speaker.twitter
-              );
-            }
-          }
-        } as ActionSheetButton,
-        {
-          text: 'Share via ...'
-        } as ActionSheetButton,
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        } as ActionSheetButton
-      ]
-    } as ActionSheetOptions);
-
-    actionSheet.present();
-  }
-
-  openContact(speaker: any) {
-    let mode = this.config.get('mode');
-
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact ' + speaker.name,
-      buttons: [
-        {
-          text: `Email ( ${speaker.email} )`,
-          icon: mode !== 'ios' ? 'mail' : null,
-          handler: () => {
-            window.open('mailto:' + speaker.email);
-          }
-        } as ActionSheetButton,
-        {
-          text: `Call ( ${speaker.phone} )`,
-          icon: mode !== 'ios' ? 'call' : null,
-          handler: () => {
-            window.open('tel:' + speaker.phone);
-          }
-        } as ActionSheetButton
-      ]
-    } as ActionSheetOptions);
-
-    actionSheet.present();
-  }
 }
