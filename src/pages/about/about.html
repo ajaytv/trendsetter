@@ -17,29 +17,44 @@
   <div padding class="about-info">
     <h4></h4>
     <ion-card class="speaker-card">
-      <ion-card-header>
-        <p>{{display}}</p>
-        
-      </ion-card-header>
 
       <ion-card-content class="outer-content">
-          <a href="http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf">{{display}}</a>
+          <button ion-button  (click)="openPdf()" block clear>Summary Plan</button>
         <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
       </ion-card-content>
 
     </ion-card>
     <ion-card class="speaker-card">
-      <ion-card-header>
-        <p>Other Plan Documents</p>
-        
-      </ion-card-header>
-
       <ion-card-content class="outer-content">
-          <a href="http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf">Other Plan Documents</a>
+          <button ion-button  (click)="openPdf()" block clear>Other Plan Documents</button>
+          
         <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
       </ion-card-content>
 
     </ion-card>
+    <ion-card class="speaker-card">
+        <ion-card-header>
+            <b>Literature History</b>
+            
+          </ion-card-header>
+        <ion-item>
+            <ion-label text-md-left>Date</ion-label>
+            <ion-label text-md-centre>Client</ion-label>
+            <ion-label text-md-right>Description</ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-label text-md-left>07 Jan 1996</ion-label>
+              <ion-label text-md-centre>Oracle Corp</ion-label>
+              <ion-label text-md-right><button ion-button  (click)="openPdf()" block clear>DBform</button></ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-md-left>21 Feb 1998</ion-label>
+                <ion-label text-md-centre>Colfax</ion-label>
+                <ion-label text-md-right><button ion-button  (click)="openPdf()" block clear>DBform</button></ion-label>
+              </ion-item>
+  
+      </ion-card>
+
     <ion-card class="speaker-card">
       <ion-card-header>
         <p>Dates and Ages</p>
