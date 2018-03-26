@@ -11,21 +11,56 @@
 
 
 <ion-content>
+		<ion-card class="speaker-card">
 
-	<form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
-		<ion-list no-lines>
-			<ion-item>
-				<ion-label stacked color="primary">Enter your support message below</ion-label>
-				<ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
-			</ion-item>
-		</ion-list>
+				<ion-card-content class="outer-content">
+						<ion-item>
+								<ion-label>Benefit Commencement Date</ion-label>
+								<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+							  </ion-item>
+				</ion-card-content>
+		  
+			  </ion-card>
+			  <ion-card class="speaker-card">
 
-		<p ion-text [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>
-			Support message is required
-		</p>
+					<ion-card-content class="outer-content">
+							<ion-item>
+               
+									<ion-label>Payment Option</ion-label>
+									<ion-select [(ngModel)]="state">
+									  <ion-option value="CA" [selected]="true">Lump Sum</ion-option>
+									  <ion-option value="AZ">SLA</ion-option>
+									  <ion-option value="AZ">JS</ion-option>
+									</ion-select>
+									
+								  </ion-item>
+					</ion-card-content>
+			  
+				  </ion-card>
 
-		<div padding>
-			<button ion-button block type="submit">Submit</button>
-		</div>
-	</form>
+			  <ion-card class="speaker-card">
+
+					<ion-card-content class="outer-content">
+							<ion-item>
+									<ion-label>Spousal Consent</ion-label>
+									<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+								  </ion-item>
+					</ion-card-content>
+			  
+				  </ion-card>
+				  <ion-card class="speaker-card">
+
+						<ion-card-content class="outer-content">
+								<ion-item>
+										<ion-label>Sign Date</ion-label>
+										<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+									  </ion-item>
+						</ion-card-content>
+						
+					  </ion-card>
+					  <ion-item>
+							<ion-label ><button ion-button round clear block >Submit</button></ion-label>
+						</ion-item>
+		
+	
 </ion-content>
