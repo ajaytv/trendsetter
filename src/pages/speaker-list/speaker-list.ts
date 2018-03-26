@@ -26,8 +26,11 @@ export class SpeakerListPage {
   js5Part=this.abPart*this.factor[2];
   js1Part=this.abPart*this.factor[3];
   lumpPart=Math.ceil(this.abPart*this.factor[4]*12);
+  js5Beneficiary=this.js5Part*0.5;
+  js1Beneficiary=this.js1Part;
   partscenario =3;
-  speakers: any[] = [];
+  sgm:string;
+ 
   
 
   constructor(
@@ -36,12 +39,13 @@ export class SpeakerListPage {
     public confData: ConferenceData,
     public config: Config,
     public inAppBrowser: InAppBrowser
-  ) {}
+  ) {
+    }
+    ionViewWillEnter(){this.sgm="scenario1";}
 
   ionViewDidLoad() {
-    this.confData.getSpeakers().subscribe((speakers: any[]) => {
-      this.speakers = speakers;
-    });
+    
+  
   }
 
   goToSessionDetail(session: any) {

@@ -17,7 +17,7 @@
     </ion-segment-button>
   </ion-segment>
   <div [ngSwitch]="sgm">
-    <div *ngSwitchCase="'scenario1'">
+    <div *ngSwitchCase="'scenario1'" ngSelected="selected">
       <ion-card >
         <ion-card-header>
           <p><b>You</b></p>
@@ -59,23 +59,23 @@
           
         <ion-item>
           <ion-label text-md-left>AB</ion-label>
-          <ion-label >04 Jan 1986</ion-label>
+          <ion-label >0</ion-label>
         </ion-item>
         <ion-item>
             <ion-label text-md-left>SLA</ion-label>
-            <ion-label >XYZ</ion-label>
+            <ion-label >0</ion-label>
           </ion-item>
           <ion-item>
               <ion-label text-md-left>50% JS</ion-label>
-              <ion-label >2</ion-label>
+              <ion-label >{{js5Beneficiary}}</ion-label>
             </ion-item> 
             <ion-item>
               <ion-label text-md-left>100% JS</ion-label>
-              <ion-label >2</ion-label>
+              <ion-label >{{js1Beneficiary}}</ion-label>
             </ion-item> 
             <ion-item>
               <ion-label text-md-left>Lump Sum</ion-label>
-              <ion-label >2</ion-label>
+              <ion-label >0</ion-label>
             </ion-item> 
         </ion-card-content>
     
