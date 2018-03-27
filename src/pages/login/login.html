@@ -3,45 +3,56 @@
 		<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>Login</ion-title>
+		<ion-title>Joint and Contingent Form</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content>
-	<div class="logo">
-		<img src="assets/img/appicon.svg" alt="Ionic logo">
-	</div>
+		<ion-item>
+				<ion-label floating>Beneficiary Name</ion-label>
+				<ion-input type="number" [(ngModel)]="income"></ion-input>
+			  </ion-item>
+			  <ion-item>
+			  <ion-label floating>SSN</ion-label>
+				<ion-input type="number"></ion-input>
+			  </ion-item>
+			  <ion-card class="speaker-card">
 
-	<form #loginForm="ngForm" novalidate>
-		<ion-list no-lines>
-			<ion-item>
-				<ion-label stacked color="primary">Username</ion-label>
-				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-					required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-				Username is required
-			</p>
+					<ion-card-content class="outer-content">
+							<ion-item>
+									<ion-label>DOB</ion-label>
+									<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+								  </ion-item>
+									  <ion-item>
+               
+											<ion-label>Relationship</ion-label>
+											<ion-select [(ngModel)]="state">
+											  <ion-option value="spouse" [selected]="true">Spouse</ion-option>
+											  <ion-option value="nonspouse">Non-Spouse</ion-option>
+											</ion-select>
+											
+										  </ion-item>
+										  <ion-item>
+               
+												<ion-label>Proof of birth</ion-label>
+												<ion-select [(ngModel)]="state">
+												  <ion-option value="yes" [selected]="true">yes</ion-option>
+												  <ion-option value="no">No</ion-option>
+												</ion-select>
 
-			<ion-item>
-				<ion-label stacked color="primary">Password</ion-label>
-				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
-			</p>
-		</ion-list>
+												
+											  </ion-item>
+											  <ion-item>
+													<ion-label floating>Benefit Percentage</ion-label>
+													  <ion-input type="number"></ion-input>
+													</ion-item>
+													<ion-item>
+															<ion-label ><button ion-button round clear block >Submit</button></ion-label>
+														</ion-item>
 
-		<ion-row responsive-sm>
-			<ion-col>
-				<button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
-			</ion-col>
-			<ion-col>
-				<button ion-button (click)="onSignup()" color="light" block>Signup</button>
-			</ion-col>
-		</ion-row>
-	</form>
 
+					</ion-card-content>
+			  
+				  </ion-card>
+			 
 </ion-content>
